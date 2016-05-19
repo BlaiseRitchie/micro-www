@@ -29,6 +29,7 @@ integrations:
     hub:
       - integrationName: "labmvdev"
         type: ecr
+        region: us-west-2
         branches:
           only:
             - amazon-ecr-ecs-beta
