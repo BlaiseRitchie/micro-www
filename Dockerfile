@@ -1,4 +1,4 @@
-FROM 288971733297.dkr.ecr.us-east-1.amazonaws.com/micro-image:flat.1
+FROM 195324580561.dkr.ecr.us-west-2.amazonaws.com/micro-image:flat.1
 
 # this folder must be created in the base images
 ADD . /root/micro-www/

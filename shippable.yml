@@ -10,7 +10,7 @@ env:
     - XUNIT_FILE=./shippable/testresults/result.xml
     - APPLICATION=aye0aye
     - SERVICE=micro-www-beta
-    - REGISTRY_ACCOUNT=288971733297.dkr.ecr.us-east-1.amazonaws.com # image registry account name/location
+    - REGISTRY_ACCOUNT=195324580561.dkr.ecr.us-west-2.amazonaws.com # image registry account name/location
 
 build:
   pre_ci:
