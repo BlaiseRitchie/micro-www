@@ -8,8 +8,8 @@ node_js:
 env:
   global:
     - XUNIT_FILE=./shippable/testresults/result.xml
-    - APPLICATION=aye0aye
-    - SERVICE=micro-www-beta
+    - APPLICATION=shippable
+    - SERVICE=micro-www
     - REGISTRY_ACCOUNT=195324580561.dkr.ecr.us-west-2.amazonaws.com # image registry account name/location
 
 build:
