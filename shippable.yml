@@ -8,28 +8,24 @@ node_js:
 env:
   global:
     - XUNIT_FILE=./shippable/testresults/result.xml
-    - APPLICATION=shippable
     - SERVICE=micro-www
     - REGISTRY_ACCOUNT=195324580561.dkr.ecr.us-west-2.amazonaws.com # image registry account name/location
 
 build:
   pre_ci:
-    - docker build -t $REGISTRY_ACCOUNT/$APPLICATION/$SERVICE:latest .
+    - docker build -t $REGISTRY_ACCOUNT/$SERVICE:latest .
     - node --version
   pre_ci_boot:
-    image_name: $REGISTRY_ACCOUNT/$APPLICATION/$SERVICE
+    image_name: $REGISTRY_ACCOUNT/$SERVICE
     image_tag: latest
     pull: false
     options: --privileged=true
   post_ci:
-    - docker tag -f $REGISTRY_ACCOUNT/$APPLICATION/$SERVICE:latest $REGISTRY_ACCOUNT/$APPLICATION/$SERVICE:$BRANCH.$BUILD_NUMBER
-    - docker push $REGISTRY_ACCOUNT/$APPLICATION/$SERVICE:$BRANCH.$BUILD_NUMBER
+    - docker tag -f $REGISTRY_ACCOUNT/$SERVICE:latest $REGISTRY_ACCOUNT/$SERVICE:$BRANCH.$BUILD_NUMBER
+    - docker push $REGISTRY_ACCOUNT/$SERVICE:$BRANCH.$BUILD_NUMBER
 
 integrations:
     hub:
       - integrationName: "labmvdev"
         type: ecr
         region: us-west-2
-        branches:
-          only:
-            - amazon-ecr-ecs-beta
